@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - SB Pharmaceuticals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/products.css">
+</head>
+<body class="products-page">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" class="logo-loader">
+            <div class="loading-text">Loading products...</div>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manufacturing.html">Manufacturing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="page-header products-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold text-gradient">Pharmaceutical Excellence</h1>
+                    <p class="lead">Explore our comprehensive catalog of over 100 innovative pharmaceutical products designed to transform patient care worldwide.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="product-header-visual">
+                        <div class="floating-pill pill-1"></div>
+                        <div class="floating-pill pill-2"></div>
+                        <div class="floating-pill pill-3"></div>
+                        <div class="floating-pill pill-4"></div>
+                        <div class="floating-capsule capsule-1"></div>
+                        <div class="floating-capsule capsule-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Product Filter Section -->
+    <section class="product-filter-section">
+        <div class="container">
+            <div class="product-filter-container" data-aos="fade-up">
+                <div class="filter-header">
+                    <h4>Product Finder</h4>
+                    <p>Filter our extensive catalog to find specific products</p>
+                </div>
+                <div class="filter-controls">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                <input type="text" id="search-term" class="form-control" placeholder="Search by name...">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-filter"></i></span>
+                                <select id="category-filter" class="form-select">
+                                    <option value="">All Categories</option>
+                                    <option value="antibiotics">Antibiotics</option>
+                                    <option value="cardiovascular">Cardiovascular</option>
+                                    <option value="respiratory">Respiratory</option>
+                                    <option value="analgesics">Analgesics</option>
+                                    <option value="gastrointestinal">Gastrointestinal</option>
+                                    <option value="dermatological">Dermatological</option>
+                                    <option value="neurological">Neurological</option>
+                                    <option value="ophthalmological">Ophthalmological</option>
+                                    <option value="endocrine">Endocrine</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-pills"></i></span>
+                                <select id="form-filter" class="form-select">
+                                    <option value="">All Forms</option>
+                                    <option value="tablet">Tablet</option>
+                                    <option value="capsule">Capsule</option>
+                                    <option value="injection">Injection</option>
+                                    <option value="syrup">Syrup</option>
+                                    <option value="cream">Cream</option>
+                                    <option value="ointment">Ointment</option>
+                                    <option value="drops">Drops</option>
+                                    <option value="inhaler">Inhaler</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button id="apply-filter" class="btn btn-primary w-100">
+                                <i class="fas fa-search"></i> Find
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- View Controls & Sorting -->
+    <section class="view-controls-section">
+        <div class="container">
+            <div class="view-controls-container" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div class="results-count">
+                            Showing <span id="results-count">0</span> products
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="view-switcher">
+                            <button id="grid-view" class="view-btn active" title="Grid View">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button id="list-view" class="view-btn" title="List View">
+                                <i class="fas fa-list"></i>
+                            </button>
+                            <button id="card-view" class="view-btn" title="Card View">
+                                <i class="fas fa-id-card"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="sort-control">
+                            <label for="sort-products">Sort by:</label>
+                            <select id="sort-products" class="form-select form-select-sm">
+                                <option value="name-asc">Name (A-Z)</option>
+                                <option value="name-desc">Name (Z-A)</option>
+                                <option value="category">Category</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Category Navigation -->
+    <section class="category-nav-section">
+        <div class="container">
+            <div class="category-nav" data-aos="fade-up">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="antibiotics">Antibiotics</button>
+                <button class="category-btn" data-category="cardiovascular">Cardiovascular</button>
+                <button class="category-btn" data-category="respiratory">Respiratory</button>
+                <button class="category-btn" data-category="analgesics">Analgesics</button>
+                <button class="category-btn" data-category="gastrointestinal">Gastrointestinal</button>
+                <button class="category-btn" data-category="more">More Categories</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Product Display Section -->
+    <section class="product-display-section">
+        <div class="container">
+            <!-- Grid View (Default) -->
+            <div id="products-grid" class="products-grid active-view">
+                <div class="row g-4" id="products-grid-container">
+                    <!-- Products will be loaded here dynamically -->
+                    <div class="col-12 text-center">
+                        <div class="loading-spinner">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grid Pagination -->
+                <nav aria-label="Product pagination" class="mt-5">
+                    <ul class="pagination justify-content-center" id="grid-pagination">
+                        <!-- Pagination will be dynamically generated -->
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- List View -->
+            <div id="products-list" class="products-list">
+                <div id="products-list-container">
+                    <!-- Products will be loaded here dynamically in list format -->
+                </div>
+                
+                <!-- List Pagination -->
+                <nav aria-label="Product pagination" class="mt-5">
+                    <ul class="pagination justify-content-center" id="list-pagination">
+                        <!-- Pagination will be dynamically generated -->
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Card View -->
+            <div id="products-cards" class="products-cards">
+                <div class="row g-4" id="products-cards-container">
+                    <!-- Products will be loaded here dynamically in card format -->
+                </div>
+                
+                <!-- Card Pagination -->
+                <nav aria-label="Product pagination" class="mt-5">
+                    <ul class="pagination justify-content-center" id="cards-pagination">
+                        <!-- Pagination will be dynamically generated -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories Overview -->
+    <section class="categories-overview">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 class="fw-bold text-gradient">Product Categories</h2>
+                <p class="lead">Comprehensive solutions for diverse therapeutic areas</p>
+            </div>
+            
+            <div class="categories-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="category-card" data-category="antibiotics">
+                            <div class="category-icon">
+                                <i class="fas fa-bacterium"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>Antibiotics</h3>
+                                <p>Advanced formulations to combat bacterial infections with enhanced efficacy.</p>
+                                <a href="#" class="category-link view-category" data-category="antibiotics">
+                                    <span>View Products</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="category-indicator">
+                                <div class="indicator-dot antibiotics"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="category-card" data-category="cardiovascular">
+                            <div class="category-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>Cardiovascular</h3>
+                                <p>Innovative therapeutics for heart health and circulatory system disorders.</p>
+                                <a href="#" class="category-link view-category" data-category="cardiovascular">
+                                    <span>View Products</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="category-indicator">
+                                <div class="indicator-dot cardiovascular"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="category-card" data-category="respiratory">
+                            <div class="category-icon">
+                                <i class="fas fa-lungs"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>Respiratory</h3>
+                                <p>Advanced medications for asthma, COPD, and other respiratory conditions.</p>
+                                <a href="#" class="category-link view-category" data-category="respiratory">
+                                    <span>View Products</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="category-indicator">
+                                <div class="indicator-dot respiratory"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="category-card" data-category="analgesics">
+                            <div class="category-icon">
+                                <i class="fas fa-head-side-virus"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>Analgesics</h3>
+                                <p>Effective pain management solutions with minimal side effects.</p>
+                                <a href="#" class="category-link view-category" data-category="analgesics">
+                                    <span>View Products</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="category-indicator">
+                                <div class="indicator-dot analgesics"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="category-card" data-category="gastrointestinal">
+                            <div class="category-icon">
+                                <i class="fas fa-stomach"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>Gastrointestinal</h3>
+                                <p>Specialized treatments for digestive system disorders and conditions.</p>
+                                <a href="#" class="category-link view-category" data-category="gastrointestinal">
+                                    <span>View Products</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="category-indicator">
+                                <div class="indicator-dot gastrointestinal"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="category-card" data-category="more">
+                            <div class="category-icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>More Categories</h3>
+                                <p>Explore our full range of specialized therapeutic categories.</p>
+                                <a href="#" class="category-link" id="view-all-categories">
+                                    <span>View All</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="category-indicator">
+                                <div class="indicator-dot more"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Product Viewer Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-viewer-container">
+                                <div id="product-viewer">
+                                    <canvas id="product-3d-canvas"></canvas>
+                                </div>
+                                <div class="viewer-controls">
+                                    <button id="rotate-left" class="viewer-btn"><i class="fas fa-undo"></i></button>
+                                    <button id="rotate-right" class="viewer-btn"><i class="fas fa-redo"></i></button>
+                                    <button id="zoom-in" class="viewer-btn"><i class="fas fa-search-plus"></i></button>
+                                    <button id="zoom-out" class="viewer-btn"><i class="fas fa-search-minus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-details">
+                                <h3 id="modal-product-name"></h3>
+                                <div class="product-badge" id="modal-product-category"></div>
+                                
+                                <div class="product-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-label">Active Ingredient:</div>
+                                        <div class="spec-value" id="modal-product-ingredient"></div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-label">Dosage Form:</div>
+                                        <div class="spec-value" id="modal-product-form"></div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-label">Strength:</div>
+                                        <div class="spec-value" id="modal-product-strength"></div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-label">Therapeutic Class:</div>
+                                        <div class="spec-value" id="modal-product-class"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="product-description">
+                                    <h5>Description</h5>
+                                    <p id="modal-product-description"></p>
+                                </div>
+                                
+                                <div class="product-indications">
+                                    <h5>Indications</h5>
+                                    <p id="modal-product-indications"></p>
+                                </div>
+                                
+                                <div class="product-actions">
+                                    <a href="#" id="modal-product-pdf" class="btn btn-outline-primary">
+                                        <i class="fas fa-file-pdf"></i> Download PDF
+                                    </a>
+                                    <a href="contact.html" class="btn btn-primary">
+                                        <i class="fas fa-envelope"></i> Inquire About This Product
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Categories Modal -->
+    <div class="modal fade" id="categoriesModal" tabindex="-1" aria-labelledby="categoriesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="categoriesModalLabel">All Product Categories</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="all-categories-grid">
+                        <!-- Main categories -->
+                        <div class="category-item" data-category="antibiotics">
+                            <div class="category-icon"><i class="fas fa-bacterium"></i></div>
+                            <h5>Antibiotics</h5>
+                        </div>
+                        <div class="category-item" data-category="cardiovascular">
+                            <div class="category-icon"><i class="fas fa-heartbeat"></i></div>
+                            <h5>Cardiovascular</h5>
+                        </div>
+                        <div class="category-item" data-category="respiratory">
+                            <div class="category-icon"><i class="fas fa-lungs"></i></div>
+                            <h5>Respiratory</h5>
+                        </div>
+                        <div class="category-item" data-category="analgesics">
+                            <div class="category-icon"><i class="fas fa-head-side-virus"></i></div>
+                            <h5>Analgesics</h5>
+                        </div>
+                        <div class="category-item" data-category="gastrointestinal">
+                            <div class="category-icon"><i class="fas fa-stomach"></i></div>
+                            <h5>Gastrointestinal</h5>
+                        </div>
+                        
+                        <!-- Additional categories -->
+                        <div class="category-item" data-category="dermatological">
+                            <div class="category-icon"><i class="fas fa-allergies"></i></div>
+                            <h5>Dermatological</h5>
+                        </div>
+                        <div class="category-item" data-category="neurological">
+                            <div class="category-icon"><i class="fas fa-brain"></i></div>
+                            <h5>Neurological</h5>
+                        </div>
+                        <div class="category-item" data-category="ophthalmological">
+                            <div class="category-icon"><i class="fas fa-eye"></i></div>
+                            <h5>Ophthalmological</h5>
+                        </div>
+                        <div class="category-item" data-category="endocrine">
+                            <div class="category-icon"><i class="fas fa-dna"></i></div>
+                            <h5>Endocrine</h5>
+                        </div>
+                        <div class="category-item" data-category="vaccines">
+                            <div class="category-icon"><i class="fas fa-syringe"></i></div>
+                            <h5>Vaccines</h5>
+                        </div>
+                        <div class="category-item" data-category="hematology">
+                            <div class="category-icon"><i class="fas fa-tint"></i></div>
+                            <h5>Hematology</h5>
+                        </div>
+                        <div class="category-item" data-category="oncology">
+                            <div class="category-icon"><i class="fas fa-ribbon"></i></div>
+                            <h5>Oncology</h5>
+                        </div>
+                        <div class="category-item" data-category="immunology">
+                            <div class="category-icon"><i class="fas fa-shield-virus"></i></div>
+                            <h5>Immunology</h5>
+                        </div>
+                        <div class="category-item" data-category="renal">
+                            <div class="category-icon"><i class="fas fa-kidneys"></i></div>
+                            <h5>Renal</h5>
+                        </div>
+                        <div class="category-item" data-category="musculoskeletal">
+                            <div class="category-icon"><i class="fas fa-bone"></i></div>
+                            <h5>Musculoskeletal</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container" data-aos="fade-up">
+                <div class="cta-content">
+                    <h2 class="text-gradient">Need more product information?</h2>
+                    <p class="lead">Our expert team is ready to assist you with detailed information about our products.</p>
+                    <a href="contact.html" class="btn btn-light btn-lg mt-3">Contact Our Team</a>
+                </div>
+                <div class="cta-shape"></div>
+                <div class="cta-particles" id="cta-particles"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Interactive Elements -->
+    <footer>
+        <div class="footer-waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" height="70" class="footer-logo">
+                        <h4>SB Pharmaceuticals</h4>
+                    </div>
+                    <p class="footer-tagline">Transforming Healthcare Through Innovation</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5>Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="manufacturing.html">Pharmaceutical Manufacturing</a></li>
+                        <li><a href="distribution.html">Global Distribution</a></li>
+                        <li><a href="research.html">Research & Development</a></li>
+                        <li><a href="quality.html">Quality Control</a></li>
+                        <li><a href="partnerships.html">Strategic Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3">
+                    <h5>Contact Us</h5>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Pharma Street, Medical District</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(123) 456-7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sbpharmaceuticals.com</span>
+                        </li>
+                    </ul>
+                    <div class="newsletter-form">
+                        <h6>Subscribe to our newsletter</h6>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary btn-sm" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 SB Pharmaceuticals. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

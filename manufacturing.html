@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manufacturing | SB Pharmaceuticals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Manufacturing Page Specific Styles */
+        .manufacturing-hero {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/manu.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.8s;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .process-section {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern-bg.svg');
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .process-step {
+            position: relative;
+            padding: 30px;
+            background-color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(247, 148, 29, 0.3);
+            z-index: 2;
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover .step-icon {
+            transform: scale(1.2);
+        }
+        
+        .process-connector {
+            position: absolute;
+            top: 50%;
+            right: -50px;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+        
+        .process-connector::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 12px solid var(--secondary);
+        }
+        
+        .facility-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+        
+        .facility-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            height: 300px;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .facility-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .facility-card:hover .facility-img {
+            transform: scale(1.1);
+        }
+        
+        .facility-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-card:hover .facility-overlay {
+            background: linear-gradient(to top, rgba(46, 49, 146, 0.9), transparent);
+        }
+        
+        .facility-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .facility-location {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .quality-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quality-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/quality-bg.svg');
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .quality-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quality-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .quality-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .quality-card:hover .quality-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .quality-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+        
+        .stat-number.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        
+        .innovation-section {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .innovation-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .innovation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .innovation-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .innovation-content {
+            padding: 20px;
+        }
+        
+        .innovation-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .innovation-text {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .btn-learn-more {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-learn-more:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(247, 148, 29, 0.3);
+            color: white;
+        }
+        
+        .interactive-model {
+            position: relative;
+            height: 500px;
+            background-color: #000;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        #model-canvas {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .model-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .model-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin: 0 5px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .model-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        .model-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .process-connector {
+                display: none;
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                top: -15px;
+                left: -15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" class="logo-loader">
+            <div class="loading-text">Innovating healthcare...</div>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="manufacturing.html">Manufacturing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Animated Text -->
+    <section class="manufacturing-hero">
+        <div class="container text-center text-white hero-content">
+            <h1 class="hero-title text-gradient">State-of-the-Art Manufacturing</h1>
+            <p class="hero-subtitle">Where precision meets innovation to create life-changing pharmaceuticals</p>
+            <a href="#manufacturing-process" class="btn btn-light btn-lg rounded-pill px-4 py-3 fw-bold scroll-btn">
+                Explore Our Process
+                <i class="fas fa-arrow-down ms-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Manufacturing Process Section -->
+    <section id="manufacturing-process" class="process-section">
+        <div class="process-bg"></div>
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Our Manufacturing Process</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">From raw materials to finished products, excellence at every step</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">1</div>
+                        <i class="fas fa-flask step-icon"></i>
+                        <h3>Research & Development</h3>
+                        <p>Our scientists develop innovative formulations in state-of-the-art laboratories, ensuring efficacy and safety.</p>
+                        <div class="process-connector d-none d-lg-block"></div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-vial step-icon"></i>
+                        <h3>Raw Material Testing</h3>
+                        <p>Every ingredient undergoes rigorous testing to ensure purity, potency, and compliance with global standards.</p>
+                        <div class="process-connector d-none d-lg-block"></div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-mortar-pestle step-icon"></i>
+                        <h3>Formulation</h3>
+                        <p>Precise blending of active ingredients and excipients according to our proprietary formulations.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                        <div class="step-number">4</div>
+                        <i class="fas fa-industry step-icon"></i>
+                        <h3>Production</h3>
+                        <p>Automated manufacturing lines with minimal human intervention ensure consistency and sterility.</p>
+                        <div class="process-connector d-none d-lg-block"></div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+                        <div class="step-number">5</div>
+                        <i class="fas fa-microscope step-icon"></i>
+                        <h3>Quality Control</h3>
+                        <p>Multiple quality checks throughout the process verify that every batch meets our exacting standards.</p>
+                        <div class="process-connector d-none d-lg-block"></div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="600">
+                        <div class="step-number">6</div>
+                        <i class="fas fa-box step-icon"></i>
+                        <h3>Packaging & Distribution</h3>
+                        <p>Secure packaging and temperature-controlled distribution ensure product integrity until it reaches patients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Facilities Section -->
+    <section class="facility-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Our Global Facilities</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Strategic locations delivering excellence worldwide</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="facility-card">
+                        <img src="images/facilities/usa.jpg" alt="USA Facility" class="facility-img">
+                        <div class="facility-overlay">
+                            <h3 class="facility-title">North American Headquarters</h3>
+                            <p class="facility-location">Boston, Massachusetts, USA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="facility-card">
+                        <img src="images/facilities/europe.jpg" alt="Europe Facility" class="facility-img">
+                        <div class="facility-overlay">
+                            <h3 class="facility-title">European Research Center</h3>
+                            <p class="facility-location">Basel, Switzerland</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="facility-card">
+                        <img src="images/facilities/asia.jpg" alt="Asia Facility" class="facility-img">
+                        <div class="facility-overlay">
+                            <h3 class="facility-title">Asia Pacific Manufacturing Hub</h3>
+                            <p class="facility-location">Singapore</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="facility-card">
+                        <img src="images/facilities/india.jpg" alt="India Facility" class="facility-img">
+                        <div class="facility-overlay">
+                            <h3 class="facility-title">R&D Innovation Center</h3>
+                            <p class="facility-location">Hyderabad, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="facility-card">
+                        <img src="images/facilities/brazil.jpg" alt="Brazil Facility" class="facility-img">
+                        <div class="facility-overlay">
+                            <h3 class="facility-title">Latin American Distribution Center</h3>
+                            <p class="facility-location">São Paulo, Brazil</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="facility-card">
+                        <img src="images/facilities/australia.jpg" alt="Australia Facility" class="facility-img">
+                        <div class="facility-overlay">
+                            <h3 class="facility-title">Oceania Quality Control Center</h3>
+                            <p class="facility-location">Melbourne, Australia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Standards Section -->
+    <section class="quality-section">
+        <div class="quality-bg"></div>
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Quality Standards</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Exceeding global regulatory requirements</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>GMP Certified</h3>
+                        <p>All our facilities adhere to Good Manufacturing Practices (GMP) as defined by the FDA, EMA, and WHO, ensuring consistent quality in every batch.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <h3>ISO 9001:2015</h3>
+                        <p>Our quality management systems are ISO 9001:2015 certified, demonstrating our commitment to customer satisfaction and continuous improvement.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>ISO 14001:2015</h3>
+                        <p>Environmental management certification that reflects our dedication to sustainable manufacturing practices and minimizing our ecological footprint.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>ICH Q10</h3>
+                        <p>Implementation of the International Council for Harmonisation's pharmaceutical quality system guidelines for consistent global standards.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>USP Standards</h3>
+                        <p>Adherence to United States Pharmacopeia standards for identity, strength, quality, and purity of pharmaceutical ingredients and products.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="quality-card">
+                        <div class="quality-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>OHSAS 18001</h3>
+                        <p>Occupational Health and Safety Assessment Series certification demonstrating our commitment to employee safety and wellbeing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="6">0</div>
+                        <div class="stat-label">Global Facilities</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="120">0</div>
+                        <div class="stat-label">Million Units Annually</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="99.9">0</div>
+                        <div class="stat-label">Quality Rate (%)</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="85">0</div>
+                        <div class="stat-label">Countries Served</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation in Manufacturing Section -->
+    <section class="innovation-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Innovation in Manufacturing</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Pioneering technologies for the future of pharmaceutical production</p>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="innovation-card">
+                        <img src="images/innovations/automation.jpg" alt="Automation" class="innovation-img">
+                        <div class="innovation-content">
+                            <h3 class="innovation-title">Advanced Automation</h3>
+                            <p class="innovation-text">Robotic systems and AI-driven processes minimize human error and maximize precision in our manufacturing lines.</p>
+                            <a href="#" class="btn btn-learn-more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="innovation-card">
+                        <img src="images/innovations/continuous.jpg" alt="Continuous Manufacturing" class="innovation-img">
+                        <div class="innovation-content">
+                            <h3 class="innovation-title">Continuous Manufacturing</h3>
+                            <p class="innovation-text">Moving beyond batch processing to continuous production for greater efficiency and consistency.</p>
+                            <a href="#" class="btn btn-learn-more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="innovation-card">
+                        <img src="images/innovations/3d-printing.jpg" alt="3D Printing" class="innovation-img">
+                        <div class="innovation-content">
+                            <h3 class="innovation-title">3D Printing Technology</h3>
+                            <p class="innovation-text">Exploring additive manufacturing for personalized medicine and complex dosage forms.</p>
+                            <a href="#" class="btn btn-learn-more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive 3D Model Section -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-4">
+                        <h3 data-aos="fade-up">Interactive Manufacturing Line Model</h3>
+                        <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Explore our state-of-the-art tablet production line in 3D</p>
+                    </div>
+                    
+                    <div class="interactive-model" data-aos="zoom-in" data-aos-delay="200">
+                        <canvas id="model-canvas"></canvas>
+                        <div class="model-info">Click and drag to rotate. Scroll to zoom.</div>
+                        <div class="model-controls">
+                            <button class="model-btn" id="view-mixing">Mixing</button>
+                            <button class="model-btn" id="view-granulation">Granulation</button>
+                            <button class="model-btn" id="view-compression">Compression</button>
+                            <button class="model-btn" id="view-coating">Coating</button>
+                            <button class="model-btn" id="view-packaging">Packaging</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container" data-aos="fade-up">
+                <div class="cta-content">
+                    <h2 class="text-gradient">Ready to transform patient outcomes?</h2>
+                    <p class="lead">Partner with SB Pharmaceuticals to access our innovative product portfolio and distribution network.</p>
+                    <a href="contact.html" class="btn btn-light btn-lg mt-3">Contact Our Team</a>
+                </div>
+                <div class="cta-shape"></div>
+                <div class="cta-particles" id="cta-particles"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Interactive Elements -->
+    <footer>
+        <div class="footer-waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" height="70" class="footer-logo">
+                        <h4>SB Pharmaceuticals</h4>
+                    </div>
+                    <p class="footer-tagline">Transforming Healthcare Through Innovation</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5>Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="manufacturing.html">Pharmaceutical Manufacturing</a></li>
+                        <li><a href="distribution.html">Global Distribution</a></li>
+                        <li><a href="research.html">Research & Development</a></li>
+                        <li><a href="quality.html">Quality Control</a></li>
+                        <li><a href="partnerships.html">Strategic Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3">
+                    <h5>Contact Us</h5>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Pharma Street, Medical District</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(123) 456-7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sbpharmaceuticals.com</span>
+                        </li>
+                    </ul>
+                    <div class="newsletter-form">
+                        <h6>Subscribe to our newsletter</h6>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary btn-sm" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 SB Pharmaceuticals. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Manufacturing Line 3D Model
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('model-canvas');
+            
+            if (canvas) {
+                // Set up Three.js scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0x111111);
+                
+                const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+                camera.position.z = 5;
+                
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                
+                // Add lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Create a simple manufacturing line model
+                const lineGroup = new THREE.Group();
+                
+                // Mixing station
+                const mixingStation = createMachineModel(0x2e3192);
+                mixingStation.position.set(-4, 0, 0);
+                lineGroup.add(mixingStation);
+                
+                // Granulation station
+                const granulationStation = createMachineModel(0xf7941d);
+                granulationStation.position.set(-2, 0, 0);
+                lineGroup.add(granulationStation);
+                
+                // Compression station
+                const compressionStation = createMachineModel(0x2e3192);
+                compressionStation.position.set(0, 0, 0);
+                lineGroup.add(compressionStation);
+                
+                // Coating station
+                const coatingStation = createMachineModel(0xf7941d);
+                coatingStation.position.set(2, 0, 0);
+                lineGroup.add(coatingStation);
+                
+                // Packaging station
+                const packagingStation = createMachineModel(0x2e3192);
+                packagingStation.position.set(4, 0, 0);
+                lineGroup.add(packagingStation);
+                
+                // Conveyor belt
+                const conveyorGeometry = new THREE.BoxGeometry(10, 0.1, 0.5);
+                const conveyorMaterial = new THREE.MeshPhongMaterial({ color: 0x666666 });
+                const conveyor = new THREE.Mesh(conveyorGeometry, conveyorMaterial);
+                conveyor.position.set(0, -0.5, 0);
+                lineGroup.add(conveyor);
+                
+                scene.add(lineGroup);
+                
+                // Function to create a machine model
+                function createMachineModel(color) {
+                    const group = new THREE.Group();
+                    
+                    // Base
+                    const baseGeometry = new THREE.BoxGeometry(1.5, 1, 1);
+                    const baseMaterial = new THREE.MeshPhongMaterial({ color: color });
+                    const base = new THREE.Mesh(baseGeometry, baseMaterial);
+                    group.add(base);
+                    
+                    // Top part
+                    const topGeometry = new THREE.CylinderGeometry(0.3, 0.3, 0.5, 16);
+                    const topMaterial = new THREE.MeshPhongMaterial({ color: 0xcccccc });
+                    const top = new THREE.Mesh(topGeometry, topMaterial);
+                    top.position.y = 0.75;
+                    group.add(top);
+                    
+                    // Details
+                    const detailGeometry = new THREE.BoxGeometry(0.3, 0.2, 1.2);
+                    const detailMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
+                    const detail = new THREE.Mesh(detailGeometry, detailMaterial);
+                    detail.position.set(0.4, 0.2, 0);
+                    group.add(detail);
+                    
+                    return group;
+                }
+                
+                // Controls for rotating the model
+                let isDragging = false;
+                let previousMousePosition = { x: 0, y: 0 };
+                
+                canvas.addEventListener('mousedown', function(e) {
+                    isDragging = true;
+                    previousMousePosition = {
+                        x: e.clientX,
+                        y: e.clientY
+                    };
+                });
+                
+                canvas.addEventListener('mousemove', function(e) {
+                    if (isDragging) {
+                        const deltaMove = {
+                            x: e.clientX - previousMousePosition.x,
+                            y: e.clientY - previousMousePosition.y
+                        };
+                        
+                        lineGroup.rotation.y += deltaMove.x * 0.01;
+                        lineGroup.rotation.x += deltaMove.y * 0.01;
+                        
+                        previousMousePosition = {
+                            x: e.clientX,
+                            y: e.clientY
+                        };
+                    }
+                });
+                
+                window.addEventListener('mouseup', function() {
+                    isDragging = false;
+                });
+                
+                // Zoom with scroll
+                canvas.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    
+                    if (e.deltaY < 0) {
+                        // Zoom in
+                        camera.position.z = Math.max(2, camera.position.z - 0.5);
+                    } else {
+                        // Zoom out
+                        camera.position.z = Math.min(10, camera.position.z + 0.5);
+                    }
+                });
+                
+                // View buttons
+                document.getElementById('view-mixing').addEventListener('click', function() {
+                    gsap.to(camera.position, {
+                        x: -4,
+                        y: 1,
+                        z: 3,
+                        duration: 1
+                    });
+                    gsap.to(lineGroup.rotation, {
+                        y: 0,
+                        duration: 1
+                    });
+                });
+                
+                document.getElementById('view-granulation').addEventListener('click', function() {
+                    gsap.to(camera.position, {
+                        x: -2,
+                        y: 1,
+                        z: 3,
+                        duration: 1
+                    });
+                    gsap.to(lineGroup.rotation, {
+                        y: 0,
+                        duration: 1
+                    });
+                });
+                
+                document.getElementById('view-compression').addEventListener('click', function() {
+                    gsap.to(camera.position, {
+                        x: 0,
+                        y: 1,
+                        z: 3,
+                        duration: 1
+                    });
+                    gsap.to(lineGroup.rotation, {
+                        y: 0,
+                        duration: 1
+                    });
+                });
+                
+                document.getElementById('view-coating').addEventListener('click', function() {
+                    gsap.to(camera.position, {
+                        x: 2,
+                        y: 1,
+                        z: 3,
+                        duration: 1
+                    });
+                    gsap.to(lineGroup.rotation, {
+                        y: 0,
+                        duration: 1
+                    });
+                });
+                
+                document.getElementById('view-packaging').addEventListener('click', function() {
+                    gsap.to(camera.position, {
+                        x: 4,
+                        y: 1,
+                        z: 3,
+                        duration: 1
+                    });
+                    gsap.to(lineGroup.rotation, {
+                        y: 0,
+                        duration: 1
+                    });
+                });
+                
+                // Handle window resize
+                window.addEventListener('resize', function() {
+                    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    
+                    // Add subtle rotation to make the model more dynamic
+                    if (!isDragging) {
+                        lineGroup.rotation.y += 0.001;
+                    }
+                    
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            }
+        });
+    </script>
+</body>
+</html>

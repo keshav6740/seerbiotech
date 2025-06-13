@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SB Pharmaceuticals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(135deg, rgba(46, 49, 146, 0.8), rgba(247, 148, 29, 0.8)), url('images/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern.svg');
+            opacity: 0.1;
+            animation: patternMove 20s linear infinite;
+        }
+        
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        
+        .contact-form-container {
+            position: relative;
+            margin-top: -100px;
+            z-index: 10;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+        }
+        
+        .form-control {
+            border: none;
+            border-bottom: 2px solid #e9ecef;
+            border-radius: 0;
+            padding: 15px 0;
+            font-size: 1rem;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary);
+        }
+        
+        .form-label {
+            color: var(--gray);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            transform-origin: left;
+        }
+        
+        .form-floating > .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label {
+            color: var(--primary);
+            transform: translateY(-1.5rem) scale(0.85);
+        }
+        
+        .btn-contact {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(247, 148, 29, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(247, 148, 29, 0.3);
+        }
+        
+        .contact-info-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-card:hover .contact-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .map-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(46, 49, 146, 0.1);
+            pointer-events: none;
+        }
+        
+        .map-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .faq-section {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 80px 0;
+        }
+        
+        .accordion-item {
+            border: none;
+            background-color: transparent;
+            margin-bottom: 15px;
+        }
+        
+        .accordion-button {
+            background-color: white;
+            border-radius: var(--radius) !important;
+            box-shadow: var(--shadow);
+            font-weight: 600;
+            padding: 20px 25px;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            color: var(--primary);
+            background-color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(46, 49, 146, 0.1);
+        }
+        
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232e3192'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+        
+        .accordion-body {
+            background-color: white;
+            border-bottom-left-radius: var(--radius);
+            border-bottom-right-radius: var(--radius);
+            padding: 20px 25px;
+        }
+        
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-form-container {
+                margin-top: -50px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" class="logo-loader">
+            <div class="loading-text">Innovating healthcare...</div>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manufacturing.html">Manufacturing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Interactive Hero Section -->
+    <section class="contact-hero">
+        <div class="particles-container" id="contact-particles"></div>
+        <div class="container text-center text-white position-relative" style="z-index: 2;">
+            <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">Get In Touch</h1>
+            <p class="lead mb-0" data-aos="fade-up" data-aos-delay="200">We're here to answer your questions and provide the support you need</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-5">
+        <div class="container contact-form-container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form" data-aos="fade-up">
+                        <h2 class="text-center mb-4 text-gradient">Send Us a Message</h2>
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                        <label for="name">Your Name</label>
+                                        <div class="invalid-feedback">
+                                            Please provide your name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                        <label for="email">Your Email</label>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="tel" class="form-control" id="phone" placeholder="Phone Number">
+                                        <label for="phone">Phone Number (Optional)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="subject" required>
+                                            <option value="" selected disabled>Select a subject</option>
+                                            <option value="General Inquiry">General Inquiry</option>
+                                            <option value="Product Information">Product Information</option>
+                                            <option value="Partnership Opportunity">Partnership Opportunity</option>
+                                            <option value="Career Information">Career Information</option>
+                                            <option value="Technical Support">Technical Support</option>
+                                        </select>
+                                        <label for="subject">Subject</label>
+                                        <div class="invalid-feedback">
+                                            Please select a subject.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <textarea class="form-control" id="message" placeholder="Your Message" style="height: 150px" required></textarea>
+                                        <label for="message">Your Message</label>
+                                        <div class="invalid-feedback">
+                                            Please provide your message.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="privacy" required>
+                                        <label class="form-check-label" for="privacy">
+                                            I agree to the <a href="#">privacy policy</a> and consent to the processing of my personal data.
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            You must agree before submitting.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-contact" id="submitBtn">
+                                        <span id="submitText">Send Message</span>
+                                        <span id="submitSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="alert alert-success mt-4 d-none" id="successMessage">
+                            <i class="fas fa-check-circle me-2"></i> Your message has been sent successfully! We'll get back to you soon.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-gradient" data-aos="fade-up">Contact Information</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Multiple ways to reach us</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Visit Us</h4>
+                        <p class="mb-0">123 Pharma Street</p>
+                        <p class="mb-0">Medical District</p>
+                        <p>United States</p>
+                        <a href="#map" class="btn btn-sm btn-outline-primary mt-2 scroll-btn">View on Map</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Call Us</h4>
+                        <p class="mb-0">Main Office: (123) 456-7890</p>
+                        <p class="mb-0">Customer Support: (123) 456-7891</p>
+                        <p>Toll-Free: 1-800-SBPHARMA</p>
+                        <p class="text-muted small">Monday - Friday: 9:00 AM - 5:00 PM EST</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p class="mb-0">General Inquiries: <a href="mailto:info@sbpharmaceuticals.com">info@sbpharmaceuticals.com</a></p>
+                        <p class="mb-0">Customer Support: <a href="mailto:support@sbpharmaceuticals.com">support@sbpharmaceuticals.com</a></p>
+                        <p>Careers: <a href="mailto:careers@sbpharmaceuticals.com">careers@sbpharmaceuticals.com</a></p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="py-5" id="map">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-gradient" data-aos="fade-up">Our Location</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Find us on the map</p>
+            </div>
+            
+            <div class="map-container" data-aos="zoom-in">
+                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d229.56697203199985!2d72.49554197015972!3d22.98439617647903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1749792062041!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573036728!2d-73.98509668459377!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1629321889747!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe> -->
+                <div class="map-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-gradient" data-aos="fade-up">Frequently Asked Questions</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Find answers to common questions</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="faqAccordion" data-aos="fade-up" data-aos-delay="200">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How can I find information about your products?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You can find detailed information about our products on the <a href="products.html">Products</a> page of our website. Each product listing includes information about active ingredients, dosage forms, therapeutic class, and indications. For more specific information, you can contact our customer support team.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How can I become a distributor for SB Pharmaceuticals?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We're always looking for reliable distribution partners. To become a distributor, please send an email to <a href="mailto:partnerships@sbpharmaceuticals.com">partnerships@sbpharmaceuticals.com</a> with details about your company, distribution network, and the regions you serve. Our business development team will review your application and get back to you.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Do you offer tours of your manufacturing facilities?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer guided tours of our manufacturing facilities for educational institutions, healthcare professionals, and potential business partners. Tours must be scheduled in advance and are subject to availability and security clearance. Please contact us at <a href="mailto:tours@sbpharmaceuticals.com">tours@sbpharmaceuticals.com</a> to arrange a visit.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    What career opportunities are available at SB Pharmaceuticals?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We offer a wide range of career opportunities across research and development, manufacturing, quality control, marketing, sales, and corporate functions. To view current openings and apply, please visit our Careers page or send your resume to <a href="mailto:careers@sbpharmaceuticals.com">careers@sbpharmaceuticals.com</a>.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    How can I report an adverse event related to your products?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Patient safety is our top priority. If you experience or observe an adverse event related to any of our products, please report it immediately by calling our dedicated pharmacovigilance line at 1-800-SBSAFETY or by emailing <a href="mailto:safety@sbpharmaceuticals.com">safety@sbpharmaceuticals.com</a>. Your report will be handled confidentially and investigated promptly.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Interactive Elements -->
+    <footer>
+        <div class="footer-waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" height="70" class="footer-logo">
+                        <h4>SB Pharmaceuticals</h4>
+                    </div>
+                    <p class="footer-tagline">Transforming Healthcare Through Innovation</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5>Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="manufacturing.html">Pharmaceutical Manufacturing</a></li>
+                        <li><a href="distribution.html">Global Distribution</a></li>
+                        <li><a href="research.html">Research & Development</a></li>
+                        <li><a href="quality.html">Quality Control</a></li>
+                        <li><a href="partnerships.html">Strategic Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3">
+                    <h5>Contact Us</h5>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Pharma Street, Medical District</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(123) 456-7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sbpharmaceuticals.com</span>
+                        </li>
+                    </ul>
+                    <div class="newsletter-form">
+                        <h6>Subscribe to our newsletter</h6>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary btn-sm" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 SB Pharmaceuticals. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Contact form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const successMessage = document.getElementById('successMessage');
+            
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    if (!form.checkValidity()) {
+                        event.stopPropagation();
+                        form.classList.add('was-validated');
+                        return;
+                    }
+                    
+                    // Simulate form submission
+                    submitText.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    submitSpinner.classList.remove('d-none');
+                    
+                    setTimeout(function() {
+                        form.reset();
+                        form.classList.remove('was-validated');
+                        submitText.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                        submitSpinner.classList.add('d-none');
+                        successMessage.classList.remove('d-none');
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(function() {
+                            successMessage.classList.add('d-none');
+                        }, 5000);
+                    }, 2000);
+                });
+            }
+            
+            // Initialize contact particles
+            if (document.getElementById('contact-particles')) {
+                particlesJS('contact-particles', {
+                    particles: {
+                        number: {
+                            value: 50,
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: '#ffffff'
+                        },
+                        shape: {
+                            type: 'circle',
+                            stroke: {
+                                width: 0,
+                                color: '#000000'
+                            }
+                        },
+                        opacity: {
+                            value: 0.5,
+                            random: true,
+                            anim: {
+                                enable: false,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: 5,
+                            random: true,
+                            anim: {
+                                enable: false,
+                                speed: 40,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#ffffff',
+                            opacity: 0.4,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 2,
+                            direction: 'none',
+                            random: false,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false,
+                            attract: {
+                                enable: false,
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: 'grab'
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 1
+                                }
+                            },
+                            push: {
+                                particles_nb: 4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+        });
+    </script>
+</body>
+</html>

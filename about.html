@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SB Pharmaceuticals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* About Page Specific Styles */
+        .about-hero {
+            min-height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/lab.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            z-index: -1;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            transform: rotate(45deg);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            transform: rotate(45deg);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            width: 120px;
+            padding: 8px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            top: 16px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: -160px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            left: -160px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(46, 49, 146, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -12.5px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -12.5px;
+        }
+        
+        .timeline-dot:hover {
+            background-color: var(--secondary);
+            transform: scale(1.2);
+            box-shadow: 0 0 0 6px rgba(247, 148, 29, 0.3);
+        }
+        
+        .values-section {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 80px 0;
+        }
+        
+        .value-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+        
+        .value-card:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+        
+        .value-card:hover .value-icon {
+            color: white;
+            transform: scale(1.2);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-member {
+            position: relative;
+            margin-bottom: 30px;
+            perspective: 1000px;
+        }
+        
+        .team-card {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+        
+        .team-member:hover .team-card {
+            transform: rotateY(180deg);
+        }
+        
+        .team-front, .team-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .team-front {
+            background-color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .team-back {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            transform: rotateY(180deg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .team-social {
+            margin-top: 20px;
+        }
+        
+        .team-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .molecule-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        #molecule-canvas {
+            width: 100%;
+            height: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                top: 24px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                right: auto;
+                left: -160px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" class="logo-loader">
+            <div class="loading-text">Innovating healthcare...</div>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manufacturing.html">Manufacturing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="about-hero">
+        <div class="container text-center text-white">
+            <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">Our Story</h1>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">Pioneering healthcare solutions with innovation and integrity</p>
+            <a href="#our-journey" class="btn btn-light btn-lg rounded-pill px-4 py-3 fw-bold scroll-btn" data-aos="fade-up" data-aos-delay="400">
+                Discover Our Journey
+                <i class="fas fa-arrow-down ms-2"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Interactive Timeline Section -->
+    <section id="our-journey" class="py-5">
+        <div class="container text-center mb-5">
+            <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Our Journey</h2>
+            <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Decades of innovation and excellence in pharmaceutical manufacturing</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h3>Foundation</h3>
+                    <p>SB Pharmaceuticals was founded with a vision to revolutionize healthcare through innovative pharmaceutical solutions.</p>
+                </div>
+                <div class="timeline-date">1985</div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h3>First Research Lab</h3>
+                    <p>Established our first state-of-the-art research laboratory, marking the beginning of our commitment to scientific excellence.</p>
+                </div>
+                <div class="timeline-date">1992</div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h3>International Expansion</h3>
+                    <p>Expanded operations globally, bringing our pharmaceutical innovations to patients around the world.</p>
+                </div>
+                <div class="timeline-date">2001</div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h3>Breakthrough Research</h3>
+                    <p>Achieved significant breakthroughs in cardiovascular and respiratory treatments, earning international recognition.</p>
+                </div>
+                <div class="timeline-date">2008</div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h3>Advanced Manufacturing</h3>
+                    <p>Implemented cutting-edge manufacturing technologies, setting new standards for pharmaceutical production.</p>
+                </div>
+                <div class="timeline-date">2015</div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h3>Today</h3>
+                    <p>Continuing our mission to improve global health through innovation, quality, and accessibility.</p>
+                </div>
+                <div class="timeline-date">Present</div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section with Interactive Cards -->
+    <section class="values-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Our Core Values</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">The principles that guide everything we do</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="value-card">
+                        <i class="fas fa-flask value-icon"></i>
+                        <h3>Innovation</h3>
+                        <p>We constantly push the boundaries of pharmaceutical science to develop groundbreaking solutions that address unmet medical needs.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="value-card">
+                        <i class="fas fa-shield-alt value-icon"></i>
+                        <h3>Quality</h3>
+                        <p>We maintain the highest standards of quality and safety in every aspect of our operations, from research to manufacturing.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="value-card">
+                        <i class="fas fa-heartbeat value-icon"></i>
+                        <h3>Integrity</h3>
+                        <p>We conduct our business with unwavering ethical standards, transparency, and responsibility to patients and healthcare providers.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="400">
+                    <div class="value-card">
+                        <i class="fas fa-users value-icon"></i>
+                        <h3>Collaboration</h3>
+                        <p>We foster partnerships with healthcare professionals, research institutions, and communities to advance medical science.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="500">
+                    <div class="value-card">
+                        <i class="fas fa-globe value-icon"></i>
+                        <h3>Accessibility</h3>
+                        <p>We are committed to making our pharmaceutical products accessible to patients worldwide, regardless of geographic or economic barriers.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="600">
+                    <div class="value-card">
+                        <i class="fas fa-leaf value-icon"></i>
+                        <h3>Sustainability</h3>
+                        <p>We strive to minimize our environmental footprint and contribute positively to the communities in which we operate.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section with Flip Cards -->
+    <section class="team-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Leadership Team</h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Meet the visionaries behind SB Pharmaceuticals</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member">
+                        <div class="team-card">
+                            <div class="team-front">
+                                <img src="images/team/ceo.jpg" alt="CEO" class="team-img">
+                                <div class="team-info">
+                                    <h4>Dr. Sarah Bennett</h4>
+                                    <p class="text-muted">Chief Executive Officer</p>
+                                </div>
+                            </div>
+                            <div class="team-back">
+                                <h4>Dr. Sarah Bennett</h4>
+                                <p>With over 25 years of experience in pharmaceutical research and business leadership, Dr. Bennett has led SB Pharmaceuticals to new heights of innovation and global impact.</p>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-member">
+                        <div class="team-card">
+                            <div class="team-front">
+                                <img src="images/team/cso.jpg" alt="CSO" class="team-img">
+                                <div class="team-info">
+                                    <h4>Dr. Michael Chen</h4>
+                                    <p class="text-muted">Chief Scientific Officer</p>
+                                </div>
+                            </div>
+                            <div class="team-back">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>A renowned researcher with numerous patents to his name, Dr. Chen leads our R&D efforts, driving breakthrough innovations in pharmaceutical science.</p>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-member">
+                        <div class="team-card">
+                            <div class="team-front">
+                                <img src="images/team/coo.jpg" alt="COO" class="team-img">
+                                <div class="team-info">
+                                    <h4>James Rodriguez</h4>
+                                    <p class="text-muted">Chief Operations Officer</p>
+                                </div>
+                            </div>
+                            <div class="team-back">
+                                <h4>James Rodriguez</h4>
+                                <p>With expertise in global supply chain management and manufacturing excellence, James ensures our operations deliver the highest quality products efficiently.</p>
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Interactive Molecule Background -->
+        <div class="molecule-bg">
+            <canvas id="molecule-canvas"></canvas>
+        </div>
+    </section>
+
+    <!-- Dynamic CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container" data-aos="fade-up">
+                <div class="cta-content">
+                    <h2 class="text-gradient">Ready to transform patient outcomes?</h2>
+                    <p class="lead">Partner with SB Pharmaceuticals to access our innovative product portfolio and distribution network.</p>
+                    <a href="contact.html" class="btn btn-light btn-lg mt-3">Contact Our Team</a>
+                </div>
+                <div class="cta-shape"></div>
+                <div class="cta-particles" id="cta-particles"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Interactive Elements -->
+    <footer>
+        <div class="footer-waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="images/seer-logo.png" alt="SB Pharmaceuticals Logo" height="70" class="footer-logo">
+                        <h4>SB Pharmaceuticals</h4>
+                    </div>
+                    <p class="footer-tagline">Transforming Healthcare Through Innovation</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5>Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="manufacturing.html">Pharmaceutical Manufacturing</a></li>
+                        <li><a href="distribution.html">Global Distribution</a></li>
+                        <li><a href="research.html">Research & Development</a></li>
+                        <li><a href="quality.html">Quality Control</a></li>
+                        <li><a href="partnerships.html">Strategic Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3">
+                    <h5>Contact Us</h5>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Pharma Street, Medical District</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(123) 456-7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sbpharmaceuticals.com</span>
+                        </li>
+                    </ul>
+                    <div class="newsletter-form">
+                        <h6>Subscribe to our newsletter</h6>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary btn-sm" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 SB Pharmaceuticals. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
