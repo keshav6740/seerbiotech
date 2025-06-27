@@ -1328,3 +1328,112 @@ footer h5::after {
     height: 50px;
   }
 }
+
+/* --- Product Showcase Carousel --- */
+.product-showcase {
+  padding: 100px 0;
+  background: var(--light);
+}
+
+.product-carousel .product-card {
+  margin: 0 15px; /* Adds spacing between cards */
+  transition: transform 0.3s ease;
+}
+
+.product-carousel .product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-carousel .product-card-inner {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gray-light);
+}
+
+.product-carousel .product-image {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.product-carousel .product-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-carousel .product-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-carousel .product-content h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.product-carousel .product-content .category {
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.product-carousel .product-content .btn {
+  margin-top: auto; /* Pushes button to the bottom */
+}
+
+/* Slick Carousel Arrow Styling */
+.slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: var(--primary);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: var(--shadow);
+}
+.slick-prev:hover, .slick-next:hover {
+    background: var(--secondary);
+}
+.slick-prev { left: -50px; }
+.slick-next { right: -50px; }
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1;
+    opacity: .75;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-prev:before { content: '\f053'; }
+.slick-next:before { content: '\f054'; }
+
+@media (max-width: 767.98px) {
+  .slick-prev { left: -10px; }
+  .slick-next { right: -10px; }
+}
