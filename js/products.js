@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Dextromethorphan HBr 10mg/5ml, Phenylephrine HCL 5mg/5ml, Chlorpheniramine Maleate 2mg/5ml",
         "packing": "100ml With Box",
         "description": "A sugar-free syrup for non-productive allergic coughs. It produces a profound antitussive effect with dextromethorphan, suppresses allergic manifestations with chlorpheniramine, and prevents the influence of allergy on mucosa with phenylephrine.",
-        "image": "images/merged/cofser-plus.png"
+        "image": "images/merged/Cofser-plus.png"
     },
     {
         "id": 14,
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Amoxycillin 250 mg",
         "packing": "10x10",
         "description": "A dispersible tablet of Amoxycillin 250mg, a trusted penicillin antibiotic. It is stable at gastric pH, completely absorbed, and diffuses rapidly into most body tissues and fluids.",
-        "image": "images/merged/MOXISER-250-3D-BIG.png"
+        "image": "images/merged/ER-250-3D-BIG.png"
     },
     {
         "id": 38,
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Amoxycillin 500 mg, Clavulanic Acid 125 mg, Lactic Acid Bacillus 60 million spores",
         "packing": "10x10 Alu. Strip.",
         "description": "Protects the antibiotic and preserves microflora. This formulation offers a probiotic-enriched, pathogen-protected amoxicillin, preventing secondary infective complications and reducing the chances of antibiotic-induced diarrhoea.",
-        "image": "images/merged/Moxiser-cv-625-3d.jpg"
+        "image": "images/merged/Moxiser-CV-625-3D.jpg"
     },
     {
         "id": 41,
@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Paracetamol 250mg/5ml, Phenylepherine 5mg/5ml, C.P.M. 2mg/5ml",
         "packing": "60ml With M.Cup",
         "description": "A multi-symptom cold and flu suspension for pediatric use. It contains Paracetamol for fever, Phenylephrine for nasal congestion, and Chlorpheniramine Maleate for allergy relief.",
-        "image": "images/merged/Secold-susp.jpg"
+        "image": "images/merged/Secold-Susp.jpg"
     },
     {
         "id": 62,
