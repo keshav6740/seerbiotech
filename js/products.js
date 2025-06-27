@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Isapgol Husk 40%, Sonamukhi 5%, Gulab Dal 5%, Harad 10%, Mulethi 5%, Saunf 5%",
         "packing": "100gm Jar",
         "description": "A natural solution for a hard-core problem. This herbal powder induces smooth laxation and relieves constipation by providing multiple mechanisms, including prokinetic and stool-softening effects. It is free from habit-forming effects.",
-        "image": "images/merged/Seralax.png"
+        "image": "images/merged/seralax.png"
     },
     {
         "id": 74,
