@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Amoxycillin 250 mg",
         "packing": "10x10",
         "description": "A dispersible tablet of Amoxycillin 250mg, a trusted penicillin antibiotic. It is stable at gastric pH, completely absorbed, and diffuses rapidly into most body tissues and fluids.",
-        "image": "images/merged/ER-250-3D-BIG.png"
+        "image": "images/merged/MOXISER-250-3D-BIG.png"
     },
     {
         "id": 38,
