@@ -1,7 +1,9 @@
-// Main JavaScript for SB Pharmaceuticals Website
+// Main JavaScript for Seerbiotech Website
 
 // Declare AOS variable first to avoid use before declaration
 var AOS;
+var particlesJS;
+var THREE;
 
 // Check if AOS is available globally, otherwise declare it
 if (typeof AOS === 'undefined') {
@@ -12,8 +14,6 @@ if (typeof AOS === 'undefined') {
     };
 }
 
-// Declare particlesJS variable first to avoid use before declaration
-var particlesJS;
 
 // Check if particlesJS is available globally, otherwise declare it
 if (typeof particlesJS === 'undefined') {
@@ -530,3 +530,4 @@ function addBond(atom1Index, atom2Index, moleculeGroup, atomPositions) {
     const bond = new THREE.Mesh(bondGeometry, bondMaterial);
     moleculeGroup.add(bond);
 }
+
