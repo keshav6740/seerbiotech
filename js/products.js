@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Atenolol 50 mg, Amlodipine 5 mg",
         "packing": "10x10 Alu. Alu.",
         "description": "A targeted combination for blood pressure control. Atenolol inhibits Beta-1 adrenergic receptors, while Amlodipine inhibits calcium channels in vascular smooth muscles, ensuring better B.P. control than either drug alone.",
-        "image": "images/merged/bpser-AT.jpg"
+        "image": "images/merged/bpser-at.jpg"
     },
     {
         "id": 6,
