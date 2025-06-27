@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Calcium (As Carbonate) 500 mg, Vitamin D3 250 I.U.",
         "packing": "10x15 Blister",
         "description": "A foundational supplement that improves osteogenesis and prevents osteoporosis. Ideal during pregnancy and lactation, it compensates for age-related calcium decrease in postmenopausal women and enhances bone mineral density in adolescents.",
-        "image": "images/merged/BONSER-D-SYP-3D-BIG.png"
+        "image": "images/merged/BONSER-D-TAB-3D-BIG.png"
     },
     {
         "id": 3,
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Calcium Citrate 1000 mg, Magnesium Hydroxide 100 mg, Zinc Sulphate 4 mg, Vitamin D3 200 I.U.",
         "packing": "10x10 Blister",
         "description": "A nutritional booster for healthy life that ensures stronger structural build-up of bones. Prevents falls, fractures, and osteopenia, and improves the weight-bearing capacity of the bone.",
-        "image": "images/merged/Bonser-Mz-Syrup1.jpg"
+        "image": "images/merged/Bonser-Mz.jpg"
     },
     {
         "id": 5,
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Atenolol 50 mg, Amlodipine 5 mg",
         "packing": "10x10 Alu. Alu.",
         "description": "A targeted combination for blood pressure control. Atenolol inhibits Beta-1 adrenergic receptors, while Amlodipine inhibits calcium channels in vascular smooth muscles, ensuring better B.P. control than either drug alone.",
-        "image": "images/merged/Bpser-AT-Tabs-e1449821978909-1.jpg"
+        "image": "images/merged/bpser-AT.jpg"
     },
     {
         "id": 6,
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Dried Aluminium Hydroxide Gel 291mg/5ml, Magnesium Hydroxide 98mg/5ml, Oxetacaine 10mg/5ml",
         "packing": "170 ml",
         "description": "A high-power antacid against hyperacidity. Provides a profound antacid effect without gastrointestinal disturbance and relieves burning sensation with the potent local anaesthetic effect of Oxetacaine.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/Cidgo-Susp.jpg"
     },
     {
         "id": 8,
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Terbutaline Sulphate 1.25mg/5ml, Bromhexine HCL 2mg/5ml, Guaiphenesin 50mg/5ml, Menthol 0.5mg/5ml",
         "packing": "100ml With M.Cup",
         "description": "A multi-action combination to treat productive cough. It produces mucolytic, bronchodilator, and expectorant effects to clear the airway, improving quality of life and patient compliance.",
-        "image": "images/merged/cofser-am.jpg"
+        "image": "images/merged/cofser-syrup.jpg"
     },
     {
         "id": 9,
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Cefixime 50mg/5ml",
         "packing": "30 ml With Box",
         "description": "A dry syrup formulation of Cefixime, available in a delicious kid-friendly flavour. It offers a compact solution to control bacterial infections in a convenient, easy-to-administer liquid form for pediatric patients.",
-        "image": "images/merged/FIXER-100-3D.png"
+        "image": "images/merged/FIXER-DS-3D.png"
     },
     {
         "id": 22,
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Levofloxacin 500 mg",
         "packing": "20x10 Blister",
         "description": "A broad-spectrum antibacterial agent for a victorious smile. Exhibits activity against a range of Gram-positive and Gram-negative bacteria and is highly appreciable in genito-urinary infections and community-acquired pneumonia.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/FLOXER-3D.png"
     },
     {
         "id": 24,
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Pantoprazole 40 mg",
         "packing": "Vial",
         "description": "An injectable form of Pantoprazole, provided as a lyophilized powder for reconstitution. It causes potent and long-lasting suppression of gastric acid secretion, ideal for acute care settings where oral administration is not possible.",
-        "image": "images/merged/GASONET-40-3D.png"
+        "image": "images/merged/GASONET-40-INJ-3D.png"
     },
     {
         "id": 25,
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Pantoprazole Sodium 40 mg, Domperidone (Sustained Release) 30 mg",
         "packing": "10x10 Alu. Alu.",
         "description": "A gastro-friendly combination with prokinetic advantages. This sustained-release capsule offers round-the-clock control on acid release and improves symptoms of dyspepsia, GERD, and diabetic gastropathy.",
-        "image": "images/merged/GASONET-D-3D.png"
+        "image": "images/merged/GASONET-DSR-3D.png"
     },
     {
         "id": 28,
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Lycopene 10% 1000 mcg, Vitamins, Selenium, Zinc, Manganese, Iodine, Copper",
         "packing": "200 ml. Sorbitol Base",
         "description": "A sugar-free syrup providing a powerful antioxidant boost with Lycopene. Fortified with essential vitamins and minerals, this formula supports overall health and is suitable for a wide range of patients.",
-        "image": "images/merged/LYCOSER-SOFT-3D-BIG.png"
+        "image": "images/merged/LYCOSER-SYP-3D.png"
     },
     {
         "id": 34,
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Methylcobalamin 1500mcg, Alpha Lipoic Acid 100mg, Pyridoxine Hydrochloride 3mg, Folic Acid 1.5mg",
         "packing": "10x10 Alu.Alu.",
         "description": "An oral neuroprotective formula for conditions like diabetic neuropathy. It combines Methylcobalamin for nerve health with the potent antioxidant Alpha-Lipoic Acid, which acts in both water and lipid media.",
-        "image": "images/merged/MECOSER-PLUS-3D-BIG.png"
+        "image": "images/merged/MECOSER-PLUS-3D.png"
     },
     {
         "id": 36,
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Amoxycillin 500 mg, Clavulanic Acid 125 mg, Lactic Acid Bacillus 60 million spores",
         "packing": "10x10 Alu. Strip.",
         "description": "Protects the antibiotic and preserves microflora. This formulation offers a probiotic-enriched, pathogen-protected amoxicillin, preventing secondary infective complications and reducing the chances of antibiotic-induced diarrhoea.",
-        "image": "images/merged/Moxiser-cv-375.jpg"
+        "image": "images/merged/Moxiser-cv-625-3d.jpg"
     },
     {
         "id": 41,
@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Nimesulide 100 mg, Paracetamol 325 mg",
         "packing": "10X2X10 Blister",
         "description": "A potent antipyretic combination for faster and durable action in spectacular performance against fever and pain. It extends additional built-in analgesic & anti-inflammatory effects and exhibits a low propensity for gastric irritation.",
-        "image": "images/merged/NIMOTEN-MD-3D.png"
+        "image": "images/merged/NIMOTEN-P-3D.png"
     },
     {
         "id": 47,
@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Vitamin B-complex with L-Lysine Syp",
         "packing": "200 ml",
         "description": "A syrup to reduce risk and restore balance. It corrects B-complex deficiencies, provides probiotic benefits, and offers L-lysine for growth promotion in a palatable syrup form.",
-        "image": "images/merged/PLAXINET-CAP-3D-BIG.png"
+        "image": "images/merged/PLAXINET-SYP-3D-BIG.png"
     },
     {
         "id": 52,
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Esomeprazole 40 mg, Domperidone (Sustained Release) 30 mg",
         "packing": "10x10 Alu. Strip.",
         "description": "For managing effective suppression of acid and dyspepsia. Dramatically decreases the secretion of hydrochloric acid, decreases postprandial reflux time, and improves symptoms control and patient compliance.",
-        "image": "images/merged/SECER-ES-DSR.jpg"
+        "image": "images/merged/placeholder.png"
     },
     {
         "id": 59,
@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Paracetamol 250mg/5ml, Phenylepherine 5mg/5ml, C.P.M. 2mg/5ml",
         "packing": "60ml With M.Cup",
         "description": "A multi-symptom cold and flu suspension for pediatric use. It contains Paracetamol for fever, Phenylephrine for nasal congestion, and Chlorpheniramine Maleate for allergy relief.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/Secold-susp.jpg"
     },
     {
         "id": 62,
@@ -497,7 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Paracetamol 500mg, Phenylepherine 10mg, C.P.M. 4mg",
         "packing": "20x10 Blister",
         "description": "A tablet formulation for comprehensive cold and flu relief. Paracetamol manages pain and fever, Phenylephrine acts as a decongestant, and Chlorpheniramine Maleate addresses allergic symptoms.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/SECOLD-3D.png"
     },
     {
         "id": 63,
@@ -545,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Ceftriaxone 250 mg, Sulbactam 125 mg",
         "packing": "Vial with WFI",
         "description": "For excellent cure with enhanced efficacy. This combination of Ceftriaxone and Sulbactam (a beta-lactamase inhibitor) expands the efficacy even to betalactamase-sensitive strains, allowing for successful outpatient treatment.",
-        "image": "images/merged/Seercef-S1500INJ.jpg"
+        "image": "images/merged/placeholder.png"
     },
     {
         "id": 69,
@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Ceftriaxone 1000 mg, Sulbactam 500 mg",
         "packing": "Vial with WFI",
         "description": "A high-dose injectable for severe mixed infections. The combination with Sulbactam provides a broad spectrum of activity against beta-lactamase producing organisms, ensuring an enhanced and excellent cure rate.",
-        "image": "images/merged/Seercef-S1500INJ.jpg"
+        "image": "images/merged/placeholder.png"
     },
     {
         "id": 70,
@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Protein Powder with Calcium, Iron, Minerals & Carbohydrates (Chocolate Flavour)",
         "packing": "200 Gms. Tin",
         "description": "A chocolate-flavoured protein powder fortified with essential minerals like Calcium and Iron. It serves as a nutritional supplement to support muscle growth, bone health, and overall vitality.",
-        "image": "images/merged/SEER-PRODUCT-LIST-FOR-WEB-SITE-2017.pdf"
+        "image": "images/merged/placeholder.png"
     },
     {
         "id": 71,
@@ -601,7 +601,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Montelukast Sodium 4 mg/5ml, Levocetirizine 2.5 mg/5ml",
         "packing": "60ml With Box",
         "description": "A pediatric syrup for when air and allergy go parallel. It checks allergic manifestations by preventing the effect of leukotrienes (Montelukast) and histamine (Levocetirizine), improving the quality of life of allergic patients.",
-        "image": "images/merged/SERICET-M-3D.png"
+        "image": "images/merged/Sericet-m-Syrup.jpg"
     },
     {
         "id": 76,
@@ -641,7 +641,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Azithromycin 200 mg/5ml",
         "packing": "30 ml With Box",
         "description": "A pediatric suspension for throat infections. This Azithromycin formulation provides a broad-spectrum antibiotic with a long half-life in a pleasant flavour, ensuring patient compliance.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/TACZI-SUSP.-3D-BIG.png"
     },
     {
         "id": 81,
@@ -649,7 +649,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Ferrous Ascorbate eq. to Elemental Iron 100 mg, Folic Acid 1.5 mg",
         "packing": "10x10 Alu.Alu.",
         "description": "Raises haemoglobin when it's less than perfect. Ensures better and greater absorption of iron from the gut by providing ascorbic acid. It also provides built-in folic acid supplementation to prevent macrocytic anaemia and birth defects.",
-        "image": "images/merged/TENRON-XT-SYP-3D-BIG.png"
+        "image": "images/merged/TENRON-XT-3D.png"
     },
     {
         "id": 82,
@@ -689,7 +689,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Ondansetron 4mg/2ml",
         "packing": "50x2ml Blister",
         "description": "An injectable antiemetic for heightened challenges posed by nausea and vomiting. Provides better control on vomiting incidences without extrapyramidal symptoms. Highly beneficial in post-operative nausea and vomiting (PONV).",
-        "image": "images/merged/VOMSER-3D-BIG.png"
+        "image": "images/merged/VOMSER-INJ-3D-BIG.png"
     },
     {
         "id": 87,
