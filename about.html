@@ -1,33 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Seerbiotech</title>
+    <title>About Us | Seer Biotech</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/styles.css">
     <style>
         /* About Page Specific Styles */
-        .about-hero {
-            min-height: 60vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/lab.png');
-            background-size: cover;
-            background-position: center;
+        .about-intro-section {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .stat-card {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(46, 49, 146, 0.2);
+        }
+
+        .stat-card .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .stat-card .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .about-features {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-features li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
         }
-        
+
+        .about-features i {
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
         .timeline {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 0;
         }
-        
+
         .timeline::after {
             content: '';
             position: absolute;
@@ -40,7 +74,7 @@
             z-index: -1;
             border-radius: 3px;
         }
-        
+
         .timeline-item {
             padding: 10px 40px;
             position: relative;
@@ -49,20 +83,20 @@
             transform: translateY(50px);
             transition: all 0.8s ease;
         }
-        
+
         .timeline-item.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .timeline-item:nth-child(odd) {
             left: 0;
         }
-        
+
         .timeline-item:nth-child(even) {
             left: 50%;
         }
-        
+
         .timeline-content {
             padding: 20px 30px;
             background-color: white;
@@ -71,12 +105,12 @@
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .timeline-content:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
-        
+
         .timeline-item:nth-child(odd) .timeline-content::after {
             content: '';
             position: absolute;
@@ -87,7 +121,7 @@
             background-color: white;
             transform: rotate(45deg);
         }
-        
+
         .timeline-item:nth-child(even) .timeline-content::after {
             content: '';
             position: absolute;
@@ -98,7 +132,7 @@
             background-color: white;
             transform: rotate(45deg);
         }
-        
+
         .timeline-date {
             position: absolute;
             width: 120px;
@@ -110,15 +144,15 @@
             font-weight: bold;
             top: 16px;
         }
-        
+
         .timeline-item:nth-child(odd) .timeline-date {
             right: -160px;
         }
-        
+
         .timeline-item:nth-child(even) .timeline-date {
             left: -160px;
         }
-        
+
         .timeline-dot {
             position: absolute;
             width: 25px;
@@ -130,198 +164,48 @@
             box-shadow: 0 0 0 4px rgba(46, 49, 146, 0.2);
             transition: all 0.3s ease;
         }
-        
+
         .timeline-item:nth-child(odd) .timeline-dot {
             right: -12.5px;
         }
-        
+
         .timeline-item:nth-child(even) .timeline-dot {
             left: -12.5px;
         }
-        
+
         .timeline-dot:hover {
             background-color: var(--secondary);
             transform: scale(1.2);
             box-shadow: 0 0 0 6px rgba(247, 148, 29, 0.3);
         }
-        
-        .values-section {
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            padding: 80px 0;
-        }
-        
-        .value-card {
-            background-color: white;
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 0;
-            height: 0;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            transition: all 0.6s ease;
-            z-index: -1;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            color: white;
-        }
-        
-        .value-card:hover::before {
-            width: 300%;
-            height: 300%;
-        }
-        
-        .value-card:hover .value-icon {
-            color: white;
-            transform: scale(1.2);
-        }
-        
-        .value-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            transition: all 0.3s ease;
-        }
-        
-        .team-section {
-            padding: 80px 0;
-        }
-        
-        .team-member {
-            position: relative;
-            margin-bottom: 30px;
-            perspective: 1000px;
-        }
-        
-        .team-card {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            transform-style: preserve-3d;
-            transition: transform 0.8s;
-        }
-        
-        .team-member:hover .team-card {
-            transform: rotateY(180deg);
-        }
-        
-        .team-front, .team-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-        }
-        
-        .team-front {
-            background-color: white;
-            box-shadow: var(--shadow);
-        }
-        
-        .team-back {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            transform: rotateY(180deg);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .team-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-        
-        .team-info {
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .team-social {
-            margin-top: 20px;
-        }
-        
-        .team-social a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .team-social a:hover {
-            background-color: white;
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .molecule-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0.1;
-        }
-        
-        #molecule-canvas {
-            width: 100%;
-            height: 100%;
-        }
-        
+
         @media (max-width: 768px) {
             .timeline::after {
                 left: 31px;
             }
-            
+
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
-            
+
             .timeline-item:nth-child(even) {
                 left: 0;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-content::after,
             .timeline-item:nth-child(even) .timeline-content::after {
                 left: -10px;
                 top: 24px;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-date,
             .timeline-item:nth-child(even) .timeline-date {
                 right: auto;
                 left: -160px;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-dot,
             .timeline-item:nth-child(even) .timeline-dot {
                 left: 18px;
@@ -329,106 +213,139 @@
         }
     </style>
 </head>
+
 <body>
-    <!-- Preloader -->
+    <!-- Preloader, Particles, and Navigation -->
     <div id="preloader">
-        <div class="loader">
-            <img src="images/seer-logo.png" alt="Seerbiotech Logo" class="logo-loader">
+        <div class="loader"><img src="images/seer-logo.png" alt="Seer Biotech Logo" class="logo-loader">
             <div class="loading-text">Innovating healthcare...</div>
         </div>
     </div>
-
-    <!-- Particle Background -->
     <div id="particles-js"></div>
-
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/seer-logo.png" alt="Seerbiotech Logo" height="60">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="container"><a class="navbar-brand" href="index.html"><img src="images/seer-logo.png"
+                    alt="Seer Biotech Logo" height="60"></a><button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="about-hero">
-        <div class="container text-center text-white">
-            <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">Our Story</h1>
-            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">Pioneering healthcare solutions with innovation and integrity</p>
-            <a href="#our-journey" class="btn btn-light btn-lg rounded-pill px-4 py-3 fw-bold scroll-btn" data-aos="fade-up" data-aos-delay="400">
-                Discover Our Journey
-                <i class="fas fa-arrow-down ms-2"></i>
-            </a>
+    <!-- *** NEW ABOUT US SECTION *** -->
+    <section class="about-intro-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-5 fw-bold mb-4">About Seer Biotech</h2>
+                    <p>With over 15 years of excellence in pharmaceutical distribution, Seer Biotech has established
+                        itself as a trusted partner for healthcare providers across India. We specialize in distributing
+                        high-quality medicines from reputable manufacturers, ensuring that patients receive the best
+                        possible care.</p>
+                    <p>Our commitment to quality, reliability, and customer service has made us the preferred
+                        pharmaceutical distributor for hospitals, clinics, and pharmacies. We maintain strict quality
+                        standards and regulatory compliance to ensure the integrity of every product we distribute.</p>
+                    <ul class="about-features mt-4">
+                        <li><i class="fas fa-check-circle"></i> Licensed pharmaceutical distributor</li>
+                        <li><i class="fas fa-check-circle"></i> Temperature-controlled storage facilities</li>
+                        <li><i class="fas fa-check-circle"></i> Nationwide distribution network</li>
+                        <li><i class="fas fa-check-circle"></i> Quality assurance protocols</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <h3 class="stat-number" data-count="100">0</h3>
+                                <p class="stat-label">Healthcare Partners</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <h3 class="stat-number" data-count="100+">0+</h3>
+                                <p class="stat-label">Pharmaceutical Products</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <h3 class="stat-number" data-count="10">0</h3>
+                                <p class="stat-label">Years of Excellence</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <h3 class="stat-number" data-count="50">0</h3>
+                                <p class="stat-label">Cities Covered</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
+    </section>
 
     <!-- Interactive Timeline Section -->
     <section id="our-journey" class="py-5">
         <div class="container text-center mb-5">
             <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Our Journey</h2>
-            <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Decades of innovation and excellence in pharmaceutical manufacturing</p>
+            <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Decades of innovation and excellence in
+                pharmaceuticals</p>
         </div>
-        
         <div class="timeline">
             <div class="timeline-item" data-aos="fade-right">
                 <div class="timeline-content">
                     <h3>Foundation</h3>
-                    <p>Seerbiotech was founded with a vision to revolutionize healthcare through innovative pharmaceutical solutions.</p>
-                </div>
-                <div class="timeline-date">1985</div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="timeline-content">
-                    <h3>First Research Lab</h3>
-                    <p>Established our first state-of-the-art research laboratory, marking the beginning of our commitment to scientific excellence.</p>
-                </div>
-                <div class="timeline-date">1992</div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item" data-aos="fade-right">
-                <div class="timeline-content">
-                    <h3>International Expansion</h3>
-                    <p>Expanded operations globally, bringing our pharmaceutical innovations to patients around the world.</p>
-                </div>
-                <div class="timeline-date">2001</div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="timeline-content">
-                    <h3>Breakthrough Research</h3>
-                    <p>Achieved significant breakthroughs in cardiovascular and respiratory treatments, earning international recognition.</p>
+                    <p>Seer Biotech was founded with a vision to revolutionize healthcare through innovative
+                        pharmaceutical solutions.</p>
                 </div>
                 <div class="timeline-date">2008</div>
                 <div class="timeline-dot"></div>
             </div>
-            
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h3>First Major Partnership</h3>
+                    <p>Established our first state-of-the-art distribution hub, marking the beginning of our commitment
+                        to supply chain excellence.</p>
+                </div>
+                <div class="timeline-date">2010</div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h3>Nationwide Expansion</h3>
+                    <p>Expanded our network, bringing quality pharmaceutical products to every corner of the nation.</p>
+                </div>
+                <div class="timeline-date">2015</div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h3>100+ Products Milestone</h3>
+                    <p>Achieved a significant milestone by expanding our portfolio to over 100 high-quality products.
+                    </p>
+                </div>
+                <div class="timeline-date">2018</div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h3>Digital Transformation</h3>
+                    <p>Implemented cutting-edge digital logistics, setting new standards for pharmaceutical distribution
+                        and tracking.</p>
+                </div>
+                <div class="timeline-date">2022</div>
+                <div class="timeline-dot"></div>
+            </div>
             <div class="timeline-item" data-aos="fade-left">
                 <div class="timeline-content">
                     <h3>Today</h3>
-                    <p>Continuing our mission to improve global health through innovation, quality, and accessibility.</p>
+                    <p>Continuing our mission to improve health by ensuring access to quality medicines through
+                        innovation and integrity.</p>
                 </div>
                 <div class="timeline-date">Present</div>
                 <div class="timeline-dot"></div>
@@ -436,83 +353,7 @@
         </div>
     </section>
 
-    <!-- Core Values Section with Interactive Cards -->
-    <section class="values-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-4 fw-bold text-gradient" data-aos="fade-up">Our Core Values</h2>
-                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">The principles that guide everything we do</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
-                    <div class="value-card">
-                        <i class="fas fa-flask value-icon"></i>
-                        <h3>Innovation</h3>
-                        <p>We constantly push the boundaries of pharmaceutical science to develop groundbreaking solutions that address unmet medical needs.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
-                    <div class="value-card">
-                        <i class="fas fa-shield-alt value-icon"></i>
-                        <h3>Quality</h3>
-                        <p>We maintain the highest standards of quality and safety in every aspect of our operations, from research to manufacturing.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="flip-left" data-aos-delay="300">
-                    <div class="value-card">
-                        <i class="fas fa-heartbeat value-icon"></i>
-                        <h3>Integrity</h3>
-                        <p>We conduct our business with unwavering ethical standards, transparency, and responsibility to patients and healthcare providers.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="flip-left" data-aos-delay="400">
-                    <div class="value-card">
-                        <i class="fas fa-users value-icon"></i>
-                        <h3>Collaboration</h3>
-                        <p>We foster partnerships with healthcare professionals, research institutions, and communities to advance medical science.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="flip-left" data-aos-delay="500">
-                    <div class="value-card">
-                        <i class="fas fa-globe value-icon"></i>
-                        <h3>Accessibility</h3>
-                        <p>We are committed to making our pharmaceutical products accessible to patients worldwide, regardless of geographic or economic barriers.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="flip-left" data-aos-delay="600">
-                    <div class="value-card">
-                        <i class="fas fa-leaf value-icon"></i>
-                        <h3>Sustainability</h3>
-                        <p>We strive to minimize our environmental footprint and contribute positively to the communities in which we operate.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-    <!-- Dynamic CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-container" data-aos="fade-up">
-                <div class="cta-content">
-                    <h2 class="text-gradient">Ready to transform patient outcomes?</h2>
-                    <p class="lead">Partner with Seerbiotech to access our innovative product portfolio and distribution network.</p>
-                    <a href="contact.html" class="btn btn-light btn-lg mt-3">Contact Our Team</a>
-                </div>
-                <div class="cta-shape"></div>
-                <div class="cta-particles" id="cta-particles"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer with Interactive Elements -->
+    <!-- Footer -->
     <footer>
         <div class="footer-waves">
             <div class="wave wave1"></div>
@@ -520,98 +361,61 @@
             <div class="wave wave3"></div>
             <div class="wave wave4"></div>
         </div>
-        
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="footer-brand">
-                        <img src="images/seer-logo.png" alt="Seerbiotech Logo" height="70" class="footer-logo">
-                        <h4>Seerbiotech</h4>
+                    <div class="footer-brand"><img src="images/seer-logo.png" alt="Seer Biotech Logo" height="70"
+                            class="footer-logo">
+                        <h4>Seer Biotech</h4>
                     </div>
                     <p class="footer-tagline">Transforming Healthcare Through Innovation</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <div class="social-links"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a><a
+                            href="#" class="social-link"><i class="fab fa-twitter"></i></a><a href="#"
+                            class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-link"><i
+                                class="fab fa-instagram"></i></a></div>
                 </div>
-                
                 <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                     <h5>Quick Links</h5>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="manufacturing.html">Manufacturing</a></li>
-                        <li><a href="research.html">Research</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5>Our Services</h5>
+                    <h5>Our Focus</h5>
                     <ul class="footer-links">
-                        <li><a href="manufacturing.html">Pharmaceutical Manufacturing</a></li>
-                        <li><a href="distribution.html">Global Distribution</a></li>
-                        <li><a href="research.html">Research & Development</a></li>
-                        <li><a href="quality.html">Quality Control</a></li>
-                        <li><a href="partnerships.html">Strategic Partnerships</a></li>
+                        <li><a href="products.html">Pharmaceutical Distribution</a></li>
+                        <li><a href="products.html">Advanced Formulation</a></li>
+                        <li><a href="about.html">Nationwide Logistics</a></li>
+                        <li><a href="contact.html">Partner Inquiries</a></li>
                     </ul>
                 </div>
-                
                 <div class="col-lg-3">
                     <h5>Contact Us</h5>
                     <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Malody House 26 & 27, Sahjanand Estate, B/h Lalji Mulji Transport Co., Sarkhej Bavla Road, Sarkhej, Ahmedabad - 382210</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+91-9016154466</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>seerbiotech@gmail.com</span>
-                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i><span>Malody House 26 & 27, Sahjanand Estate, B/h Lalji Mulji Transport Co., Sarkhej-Bavla Road, Sarkhej, Ahmedabad - 382210</span></li>
+                        <li><i class="fas fa-phone"></i><span>+91-9016154466</span></li>
+                        <li><i class="fas fa-envelope"></i><span>seerbiotech@gmail.com</span></li>
                     </ul>
-                    <div class="newsletter-form">
-                        <h6>Subscribe to our newsletter</h6>
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Your email">
-                            <button class="btn btn-primary btn-sm" type="button">Subscribe</button>
-                        </div>
-                    </div>
                 </div>
             </div>
-            
             <hr class="footer-divider">
-            
             <div class="footer-bottom">
-                <div class="copyright">
-                    &copy; 2023 Seerbiotech. All rights reserved.
-                </div>
-                <div class="footer-bottom-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms & Conditions</a>
-                    <a href="cookies.html">Cookie Policy</a>
-                </div>
+                <div class="copyright">© 2025 Seer Biotech. All rights reserved.</div>
+                <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a></div>
             </div>
         </div>
     </footer>
+    <button id="back-to-top" class="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
-    <!-- Back to top button -->
-    <button id="back-to-top" class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
