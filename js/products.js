@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Dextromethorphan HBr 10mg/5ml, Phenylephrine HCL 5mg/5ml, Chlorpheniramine Maleate 2mg/5ml",
         "packing": "100ml With Box",
         "description": "A sugar-free syrup for non-productive allergic coughs. It produces a profound antitussive effect with dextromethorphan, suppresses allergic manifestations with chlorpheniramine, and prevents the influence of allergy on mucosa with phenylephrine.",
-        "image": "images/merged/cofser-am.jpg"
+        "image": "images/merged/cofser-plus.png"
     },
     {
         "id": 14,
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Amoxycillin 500 mg, Clavulanic Acid 125 mg",
         "packing": "10x10 Alu. Strip.",
         "description": "Ensures a high level of clinical success by offering a protected amoxicillin for the treatment of a range of infections, including those caused by beta-lactamase producing bacteria. Useful as an empirical treatment.",
-        "image": "images/merged/Moxiser-CV-625-3D.jpg"
+        "image": "images/merged/moxiser-625.png"
     },
     {
         "id": 40,
@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Pregabalin 75mg, Methylcobalamin 750mcg",
         "packing": "10x10 Alu.Alu.",
         "description": "Aids in neuronal repair and maintenance. Helps repair damaged nerves with neuro-specific methylcobalamin, which improves nerve conduction and promotes regeneration. Pregabalin reduces the synaptic release of several neurotransmitters.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/pretech-m.png"
     },
     {
         "id": 53,
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Esomeprazole 40 mg, Domperidone (Sustained Release) 30 mg",
         "packing": "10x10 Alu. Strip.",
         "description": "For managing effective suppression of acid and dyspepsia. Dramatically decreases the secretion of hydrochloric acid, decreases postprandial reflux time, and improves symptoms control and patient compliance.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/secer-es.png"
     },
     {
         "id": 59,
@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Cefpodoxime 50mg/5ml",
         "packing": "30 ml. With Box",
         "description": "An antibiotic dry syrup providing profound efficacy, safety, and tolerability. A useful option for empirical therapy due to its wide antibacterial spectrum, particularly for community-acquired pneumonia in children.",
-        "image": "images/merged/seercef-100.jpg"
+        "image": "images/merged/seercef.png"
     },
     {
         "id": 65,
@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Protein Powder with Calcium, Iron, Minerals & Carbohydrates (Chocolate Flavour)",
         "packing": "200 Gms. Tin",
         "description": "A chocolate-flavoured protein powder fortified with essential minerals like Calcium and Iron. It serves as a nutritional supplement to support muscle growth, bone health, and overall vitality.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/seerpro.png"
     },
     {
         "id": 71,
@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Mefenamic Acid 100 mg, Paracetamol 250 mg",
         "packing": "60ml With M.Cup",
         "description": "A pediatric suspension to tackle both pain and fever. It produces a fast and sustained analgesic effect and also displays a potent antipyretic effect due to the combination of Mefenamic Acid and Paracetamol, in a kid-friendly flavour.",
-        "image": "images/merged/sepol-125.jpg"
+        "image": "images/merged/sepol-mds.png"
     },
     {
         "id": 73,
@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Isapgol Husk 40%, Sonamukhi 5%, Gulab Dal 5%, Harad 10%, Mulethi 5%, Saunf 5%",
         "packing": "100gm Jar",
         "description": "A natural solution for a hard-core problem. This herbal powder induces smooth laxation and relieves constipation by providing multiple mechanisms, including prokinetic and stool-softening effects. It is free from habit-forming effects.",
-        "image": "images/merged/Seralax-Susp.jpg"
+        "image": "images/merged/Seralax.png"
     },
     {
         "id": 74,
@@ -713,7 +713,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Etoricoxib 90 mg",
         "packing": "10x10 Alu.Alu.",
         "description": "A recommended NSAID for refractory pain. A COX-2 selective NSAID with high selectivity, it demonstrates therapeutic benefit in both acute and chronic pain conditions and is useful in preventing heterotopic ossification after total hip arthroplasty.",
-        "image": "images/merged/placeholder.png"
+        "image": "images/merged/xiboric-90.png"
     }
 ];
     let currentView = 'grid';
