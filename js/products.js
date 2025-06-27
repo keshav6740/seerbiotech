@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Terbutaline Sulphate 1.25mg/5ml, Bromhexine HCL 2mg/5ml, Guaiphenesin 50mg/5ml, Menthol 0.5mg/5ml",
         "packing": "100ml With M.Cup",
         "description": "A multi-action combination to treat productive cough. It produces mucolytic, bronchodilator, and expectorant effects to clear the airway, improving quality of life and patient compliance.",
-        "image": "images/merged/cofser-syrup.jpg"
+        "image": "images/merged/Cofser-Syrup.jpg"
     },
     {
         "id": 9,
