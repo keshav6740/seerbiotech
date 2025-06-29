@@ -133,7 +133,7 @@ function initProductCarousel() {
       id: 5,
       name: "BPSER-AT Tabs",
       packing: "10x10 Alu. Alu.",
-      image: "images/merged/Bpser-at.jpg",
+      image: "images/merged/bpser-at.jpg",
     },
     {
       id: 14,
