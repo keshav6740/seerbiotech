@@ -540,14 +540,6 @@ document.addEventListener('DOMContentLoaded', function() {
         "image": "images/merged/Seercef-1000INJ.jpg"
     },
     {
-        "id": 68,
-        "name": "SEERCEF-S 375 Inj",
-        "composition": "Ceftriaxone 250 mg, Sulbactam 125 mg",
-        "packing": "Vial with WFI",
-        "description": "For excellent cure with enhanced efficacy. This combination of Ceftriaxone and Sulbactam (a beta-lactamase inhibitor) expands the efficacy even to betalactamase-sensitive strains, allowing for successful outpatient treatment.",
-        "image": "images/merged/placeholder.png"
-    },
-    {
         "id": 69,
         "name": "SEERCEF-S 1500 Inj",
         "composition": "Ceftriaxone 1000 mg, Sulbactam 500 mg",
