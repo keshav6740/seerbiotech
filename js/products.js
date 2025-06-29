@@ -545,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "composition": "Ceftriaxone 1000 mg, Sulbactam 500 mg",
         "packing": "Vial with WFI",
         "description": "A high-dose injectable for severe mixed infections. The combination with Sulbactam provides a broad spectrum of activity against beta-lactamase producing organisms, ensuring an enhanced and excellent cure rate.",
-        "image": "images/merged/seercef-1500.png"
+        "image": "images/merged/image.png"
     },
     {
         "id": 70,
